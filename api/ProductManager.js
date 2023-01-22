@@ -1,3 +1,4 @@
+const { notDeepEqual } = require("assert");
 const fs = require("fs");
 
 class ProductManager {
@@ -75,6 +76,7 @@ class ProductManager {
       return [];
     } catch (error) {
       console.error(`Not products found with id ${id}`);
+      return [];
     }
   }
 

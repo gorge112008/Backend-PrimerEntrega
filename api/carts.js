@@ -61,14 +61,31 @@ routerCarts.post("/carts/:cid/products/:pid", function (req, res) {
     const cid = req.params.cid;
     const pid = req.params.pid;
     const arrayProducts = CartsManager.getProducts();
-    const response = productManager.getProductById(pid);
+    const responsecid = CartsManager.getProductById(cid);
+    const responsepid = productManager.getProductById(pid);
+    if (!isNaN(responsepid) ||!isNaN(responsecid)) {
+        res.status(400).send(`Error --> The route is not valid`);
+    }else{
     arrayProducts.forEach((item) => {
       if (item.id == +cid) {
-        item.products.push(response);
+        //SI EL ARREGLO TIENE LA ID DEL CARRITO SE ENTRA
+        let find = 0; 
+        item.products.forEach((producto) => {
+          if (producto.product == +pid) {
+            //SI EL PRODUCTO TIENE LA ID REPETIDA SE SUMA
+            producto.quantity++;
+            find = 1;
+            res.status(200).send("ADDED PRODUCT");
+          }
+        });
+        if ((find == 0)) {
+          item.products.push({ product: responsepid.id, quantity: 1 });
+          res.status(200).send("NEW PRODUCT");
+        }
       }
     });
     fs.writeFileSync("./carrito.json", JSON.stringify(arrayProducts, null, 4));
-    res.status(200).send("PRODUCTO AÑADIDO");
+    }
   } catch (error) {
     res.status(500).send(console.log(error));
   }
