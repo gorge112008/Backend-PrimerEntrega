@@ -5,12 +5,11 @@ class CartsManager {
     this.path = path;
   }
 
-   addProduct(product) {
+  addProduct(product) {
     try {
-      const arrayProducts =  this.getProducts();
-      if (arrayProducts.length !== 0){
-        
-         fs.writeFileSync(
+      const arrayProducts = this.getProducts();
+      if (arrayProducts.length !== 0) {
+        fs.writeFileSync(
           this.path,
           JSON.stringify(
             [
@@ -25,14 +24,12 @@ class CartsManager {
           ),
           "utf-8"
         );
-        return "added";
-      }else {
-         fs.writeFileSync(
+      } else {
+        fs.writeFileSync(
           this.path,
           JSON.stringify([{ ...product, id: 1 }]),
           "utf-8"
         );
-        return "added";
       }
     } catch (error) {
       console.log(error);
@@ -67,56 +64,10 @@ class CartsManager {
       console.error(`Not products found with id ${id}`);
     }
   }
-
-  updateProduct(id, product) {
-    try {
-      const arrayProducts = this.getProducts();
-      const targetProduct = arrayProducts.map((productoT) =>
-        productoT.id === +id ? { ...productoT, ...product } : productoT
-      );
-      if (isNaN(+id)) {
-        console.log(`The value ${id} not is a ID`);
-        return (`The value ${id} not is a ID`);
-      }else if (!arrayProducts.find((product) => product.id === +id)){
-        console.log(`Not products found with id ${id}`);
-        return(`Not products found with id ${id}`);
-      }else
-        console.log(`Product ${id} updated`);
-        fs.writeFileSync(
-          this.path,
-          JSON.stringify(targetProduct, null, 4)
-          
-        );
-        return(`Product ${id} updated Succesfully`);
-      
-    } catch (error) {
-      console.log(`Could not update product with id ${id}.`);
-    }
-  }
-  deleteProduct(id) {
-    try {
-      const arrayProducts = this.getProducts();
-      const targetProduct = arrayProducts.filter(
-        (productoT) => productoT.id !== +id
-      );
-      if (isNaN(+id)) {
-        console.log(`The value ${id} not is a ID`);
-      }else if (!arrayProducts.find((product) => product.id === +id)){
-        console.log(`Not products found with id ${id}`);
-      }else
-        console.log(`Product ${id} deleted`);
-         fs.writeFileSync(
-          this.path,
-          JSON.stringify(targetProduct, null, 4)
-        );
-    } catch (error) {
-      console.log(`Could not delete product with id ${id}.`);
-    }
-  }
 }
 
 const cartsList = new CartsManager("./carrito.json");
 
 module.exports = {
-    CartsManager: cartsList,
-  };
+  CartsManager: cartsList,
+};

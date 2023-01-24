@@ -1,10 +1,10 @@
 const express = require("express");
-const {routerProducts}=require('./products');
-const {routerCarts}=require('./carts');
+const { routerProducts } = require("./products");
+const { routerCarts } = require("./carts");
 const app = express();
-const router=express.Router();
-
-app.use('/api', routerCarts,routerProducts)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api", routerCarts, routerProducts);
 
 //raise the server
 

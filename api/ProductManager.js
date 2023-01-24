@@ -127,47 +127,6 @@ class ProductManager {
 }
 
 const productList = new ProductManager("./productos.json");
-/*
-const product1 = {
-  title: "Burger",
-  description: "Meat Hamburger",
-  price: 15,
-  thumbnail:
-    "https://decomidaperuana.com/wp-content/uploads/2020/10/hamburguesa-casera.jpg",
-  code: 1,
-  stock: 20,
-};
-
-const product2 = {
-  title: "Pizza",
-  description: "Meat Pizza",
-  price: 20,
-  thumbnail:
-    "https://cocina-casera.com/wp-content/uploads/2011/12/pizaa-carne-receta.jpg",
-  code: 2,
-  stock: 15,
-};
-const product3 = {
-  title: "Soda",
-  description: "Soda Inka Cola",
-  price: 5,
-  thumbnail:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_sgvulY7-Iu6lDLd2YH-dINhcOBtpgTqMTA&usqp=CAU",
-  code: 3,
-  stock: 30,
-};
-*/
-/*productList.addProduct(product1);*/ /*AÑADIR PRODUCTOS*/
-/*productList.addProduct(product2);*/ /*AÑADIR PRODUCTOS*/
-/*productList.addProduct(product3);*/ /*AÑADIR PRODUCTOS*/
-
-/*console.log(productList.getProducts());*/ /*MOSTRAR PRODUCTOS*/
-
-/*console.log(productList.getProductById(2)); /*MOSTRAR PRODUCTO CON ID 2*/
-
-/*productList.deleteProduct(1);*/ /*ELIMINAR PRODUCTOS*/
-
-/*productList.updateProduct(2, {price: 20}); /*ACTUALIZAR PRODUCTOS*/
 
 module.exports = {
   productManager: productList,

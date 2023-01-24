@@ -1,6 +1,6 @@
 [
   {
-    "title": "Soda",
+    "tittle": "Soda",
     "description": "Soda Inka Cola",
     "code": 3,
     "price": 400,
@@ -11,7 +11,7 @@
     "id": 2
   },
   {
-    "title": "Burger",
+    "tittle": "Burger",
     "description": "Meat Hamburger",
     "code": 1,
     "price": 10,
@@ -22,7 +22,7 @@
     "id": 3
   },
   {
-    "title": "Pizza",
+    "tittle": "Pizza",
     "description": "Meat Pizza",
     "code": 2,
     "price": 400,
@@ -33,14 +33,13 @@
     "id": 4
   },
   {
-    "title": "Soda",
+    "tittle": "Soda",
     "description": "Soda Inka Cola",
-    "code": 7,
+    "code": "9",
     "price": 400,
     "status": true,
     "stock": 30,
     "category": "Food",
-    "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_sgvulY7-Iu6lDLd2YH-dINhcOBtpgTqMTA&usqp=CAU",
     "id": 5
   }
 ]
