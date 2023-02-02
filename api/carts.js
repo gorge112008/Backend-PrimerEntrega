@@ -53,9 +53,8 @@ routerCarts.post("/carts", function (req, res) {
 routerCarts.get("/carts/:cid", function (req, res) {
   try {
     const cid = req.params.cid;
-    console.log(cid);
-
-    res.status(200).send("response");
+    const response = CartsManager.getProductById(cid);
+    res.status(200).send(response);
   } catch (error) {
     res.status(500).send(console.log(error));
   }
